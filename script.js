@@ -32,6 +32,10 @@ function FillCircle(x0, y0, bRadius, theColor){
 	}
 }
 
+function randomNumber(minValue, maxValue){
+	return Math.floor(Math.random()*(maxValue-minValue+1))+minValue;
+}
+
 createBtn.addEventListener('mousedown', () => {
 	balls = [];
     let bRadius = Number(document.getElementById('bRadius').value);
@@ -48,9 +52,9 @@ createBtn.addEventListener('mousedown', () => {
 
 function initialize(count, bRadius){
 	for (let i = 0; i < count; i++){
-		let xpos = (Math.random()*(W - bRadius - 10))+bRadius;
-		let ypos = (Math.random()*(H - bRadius - 10))+bRadius;
-		balls.push(new FillCircle(xpos, ypos, bRadius, 'red'));		
+		let xpos = randomNumber(bRadius+5, W-bRadius-5);
+		let ypos = randomNumber(bRadius+5, H-bRadius-5);
+		balls.push(new FillCircle(xpos, ypos, bRadius, 'red'));
 	}
 }
 
